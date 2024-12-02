@@ -1,0 +1,82 @@
+{
+  "statsOverview": [
+    {
+      "title": "Unresolved",
+      "value": 60,
+      "icon": "fa-solid fa-times-circle"
+    },
+    {
+      "title": "Overdue",
+      "value": 16,
+      "icon": "fa-solid fa-clock"
+    },
+    {
+      "title": "Open",
+      "value": 43,
+      "icon": "fa-solid fa-folder-open"
+    },
+    {
+      "title": "On hold",
+      "value": 64,
+      "icon": "fa-solid fa-pause-circle"
+    }
+  ],
+  "additionalInfoCards": [
+    {
+      "title": "Total Projects",
+      "value": "128",
+      "description": "Ongoing projects this quarter",
+      "icon": "fa-solid fa-project-diagram"
+    },
+    {
+      "title": "Team Performance",
+      "value": "92%",
+      "description": "Productivity rate",
+      "icon": "fa-solid fa-chart-line"
+    },
+    {
+      "title": "Client Satisfaction",
+      "value": "4.7/5",
+      "description": "Average rating",
+      "icon": "fa-solid fa-smile"
+    }
+  ],
+  "unresolvedTickets": [
+    {
+      "status": "Waiting on Feature Request",
+      "count": 4538
+    },
+    {
+      "status": "Awaiting Customer Response",
+      "count": 1005
+    },
+    {
+      "status": "Awaiting Developer Fix",
+      "count": 914
+    },
+    {
+      "status": "Pending",
+      "count": 281
+    }
+  ],
+  "tasks": [
+    {
+      "description": "Finish ticket update",
+      "priority": "URGENT",
+      "priorityClass": "bg-warning",
+      "completed": false
+    },
+    {
+      "description": "Create new ticket example",
+      "priority": "NEW",
+      "priorityClass": "bg-success",
+      "completed": false
+    },
+    {
+      "description": "Update ticket report",
+      "priority": "DEFAULT",
+      "priorityClass": "bg-secondary",
+      "completed": true
+    }
+  ]
+}
