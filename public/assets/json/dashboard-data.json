@@ -23,7 +23,7 @@
   ],
   "additionalInfoCards": [
     {
-      "title": "Total Projects",
+      "title": "Total Travels",
       "value": "128",
       "description": "Ongoing projects this quarter",
       "icon": "fa-solid fa-project-diagram"
@@ -36,7 +36,7 @@
     },
     {
       "title": "Client Satisfaction",
-      "value": "4.7/5",
+      "value": "4.8/5",
       "description": "Average rating",
       "icon": "fa-solid fa-smile"
     }
@@ -44,7 +44,7 @@
   "unresolvedTickets": [
     {
       "status": "Waiting on Feature Request",
-      "count": 4538
+      "count": 4238
     },
     {
       "status": "Awaiting Customer Response",

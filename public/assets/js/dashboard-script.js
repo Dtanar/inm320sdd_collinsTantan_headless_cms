@@ -1,34 +1,40 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Fetch the dashboard data
-  fetch("./assets/json/dashboard-data.json")
-    .then((response) => response.json())
-    .then((data) => {
-      // Dynamically populate Stats Overview Section
-      const statsOverviewSection = document.querySelector(
-        'section[aria-label="main-stats"]'
-      )
-      statsOverviewSection.innerHTML = "" // Clear existing content
+// document.addEventListener("DOMContentLoaded", function () {
+//   // Fetch the dashboard data from the json file
 
-      data.statsOverview.forEach((stat) => {
-        const statArticle = document.createElement("article")
-        statArticle.className = "art col-sm-6 col-lg-3 mb-lg-0"
-        statArticle.innerHTML = `
+// })
+
+// async function
+async function dynamicUpload() {
+  try {
+    await fetch("./assets/json/dashboard-data.json")
+      .then((response) => response.json())
+      .then((data) => {
+        // Dynamically populate Stats Overview Section
+        const statsOverviewSection = document.querySelector(
+          'section[aria-label="main-stats"]'
+        )
+        statsOverviewSection.innerHTML = "" // Clear existing content
+
+        data.statsOverview.forEach((stat) => {
+          const statArticle = document.createElement("article")
+          statArticle.className = "art col-sm-6 col-lg-3 mb-lg-0"
+          statArticle.innerHTML = `
                     <div class="stats-card text-center">
                         <h3 class="h6 mb-2">${stat.title}</h3>
                         <p class="stats-value mb-0">${stat.value}</p>
                     </div>
                 `
-        statsOverviewSection.appendChild(statArticle)
-      })
+          statsOverviewSection.appendChild(statArticle)
+        })
 
-      // Dynamically add Additional Info Cards Section
-      const additionalInfoSection = document.createElement("section")
-      additionalInfoSection.className = "row mb-4 additional-info"
+        // Dynamically add Additional Info Cards Section
+        const additionalInfoSection = document.createElement("section")
+        additionalInfoSection.className = "row mb-4 additional-info"
 
-      data.additionalInfoCards.forEach((card) => {
-        const cardArticle = document.createElement("article")
-        cardArticle.className = "art col-sm-6 col-lg-4 mb-lg-0"
-        cardArticle.innerHTML = `
+        data.additionalInfoCards.forEach((card) => {
+          const cardArticle = document.createElement("article")
+          cardArticle.className = "art col-sm-6 col-lg-4 mb-lg-0"
+          cardArticle.innerHTML = `
                     <div class="stats-card text-center">
                         <div class="mb-3">
                             <i class="${card.icon} fa-2x text-primary"></i>
@@ -38,40 +44,40 @@ document.addEventListener("DOMContentLoaded", function () {
                         <p class="text-muted small">${card.description}</p>
                     </div>
                 `
-        additionalInfoSection.appendChild(cardArticle)
-      })
+          additionalInfoSection.appendChild(cardArticle)
+        })
 
-      // Insert the additional info section after the main stats
-      statsOverviewSection.after(additionalInfoSection)
+        // Insert the additional info section after the main stats
+        statsOverviewSection.after(additionalInfoSection)
 
-      // Dynamically populate Unresolved Tickets Section
-      const unresolvedTicketsTable = document.querySelector(
-        ".tikets-bd .table-responsive tbody"
-      )
-      console.log(unresolvedTicketsTable)
-      unresolvedTicketsTable.innerHTML = "" // Clear existing content
+        // Dynamically populate Unresolved Tickets Section
+        const unresolvedTicketsTable = document.querySelector(
+          ".tikets-bd .table-responsive tbody"
+        )
+        console.log(unresolvedTicketsTable)
+        unresolvedTicketsTable.innerHTML = "" // Clear existing content
 
-      data.unresolvedTickets.forEach((ticket) => {
-        const ticketRow = document.createElement("tr")
-        ticketRow.className = "border-bottom task-item"
-        ticketRow.innerHTML = `
+        data.unresolvedTickets.forEach((ticket) => {
+          const ticketRow = document.createElement("tr")
+          ticketRow.className = "border-bottom task-item"
+          ticketRow.innerHTML = `
                     <td class="text-nowrap">${ticket.status}</td>
                     <td class="text-end text-muted">${ticket.count}</td>
                 `
-        unresolvedTicketsTable.appendChild(ticketRow)
-        console.log(unresolvedTicketsTable)
-      })
+          unresolvedTicketsTable.appendChild(ticketRow)
+          console.log(unresolvedTicketsTable)
+        })
 
-      // Dynamically populate Tasks Section
-      const tasksList = document.querySelector(".task-bd ul")
-      tasksList.innerHTML = "" // Clear existing content
+        // Dynamically populate Tasks Section
+        const tasksList = document.querySelector(".task-bd ul")
+        tasksList.innerHTML = "" // Clear existing content
 
-      data.tasks.forEach((task) => {
-        const taskItem = document.createElement("li")
-        taskItem.className =
-          "task-item d-flex justify-content-between align-items-center " +
-          (task.status === "last" ? "" : "border-bottom")
-        taskItem.innerHTML = `
+        data.tasks.forEach((task) => {
+          const taskItem = document.createElement("li")
+          taskItem.className =
+            "task-item d-flex justify-content-between align-items-center " +
+            (task.status === "last" ? "" : "border-bottom")
+          taskItem.innerHTML = `
                     <div>
                         <label class="d-flex align-items-center">
                             <input type="checkbox" class="me-2" ${
@@ -81,13 +87,18 @@ document.addEventListener("DOMContentLoaded", function () {
                         </label>
                     </div>
                     <span class="badge ${task.priorityClass}">${
-          task.priority
-        }</span>
+            task.priority
+          }</span>
                 `
-        tasksList.appendChild(taskItem)
+          tasksList.appendChild(taskItem)
+        })
       })
-    })
-    .catch((error) => {
-      console.error("Error loading dashboard data:", error)
-    })
-})
+      .catch((error) => {
+        console.error("Error loading dashboard data:", error)
+      })
+  } catch (error) {
+    console.error("Error loading dashboard data:", error)
+  }
+}
+
+dynamicUpload()
