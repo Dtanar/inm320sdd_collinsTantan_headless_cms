@@ -1,9 +1,6 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   // Fetch the dashboard data from the json file
 
-// })
 
-// async function
+// An asynchronous function to fetch and load the json data to the dashboard.
 async function dynamicUpload() {
   try {
     await fetch("./assets/json/dashboard-data.json")
@@ -13,15 +10,17 @@ async function dynamicUpload() {
         const statsOverviewSection = document.querySelector(
           'section[aria-label="main-stats"]'
         )
-        statsOverviewSection.innerHTML = "" // Clear existing content
+        // Clear existing content
+        // statsOverviewSection.innerHTML = "" 
 
         data.statsOverview.forEach((stat) => {
           const statArticle = document.createElement("article")
-          statArticle.className = "art col-sm-6 col-lg-3 mb-lg-0"
-          statArticle.innerHTML = `
+          statArticle.className = "art col-sm-6 col-lg-3 mb-lg-2"
+          statArticle.innerHTML = statArticle.innerHTML + `
                     <div class="stats-card text-center">
                         <h3 class="h6 mb-2">${stat.title}</h3>
                         <p class="stats-value mb-0">${stat.value}</p>
+                        <i class="${stat.icon} fa-2x text-primary"></i>
                     </div>
                 `
           statsOverviewSection.appendChild(statArticle)
@@ -65,7 +64,6 @@ async function dynamicUpload() {
                     <td class="text-end text-muted">${ticket.count}</td>
                 `
           unresolvedTicketsTable.appendChild(ticketRow)
-          console.log(unresolvedTicketsTable)
         })
 
         // Dynamically populate Tasks Section
@@ -100,5 +98,7 @@ async function dynamicUpload() {
     console.error("Error loading dashboard data:", error)
   }
 }
+
+// calling the function
 
 dynamicUpload()

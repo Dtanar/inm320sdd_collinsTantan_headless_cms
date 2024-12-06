@@ -1,26 +1,27 @@
 {
   "statsOverview": [
     {
-      "title": "Unresolved",
-      "value": 60,
-      "icon": "fa-solid fa-times-circle"
+      "title": "Critical",
+      "value": "23",
+      "icon": "fab fa-critical-role"
     },
     {
-      "title": "Overdue",
-      "value": 16,
-      "icon": "fa-solid fa-clock"
+      "title": "Pending Review",
+      "value": "37",
+      "icon": "fa-solid fa-pause-circle"
     },
     {
-      "title": "Open",
-      "value": 43,
-      "icon": "fa-solid fa-folder-open"
+      "title": "live",
+      "value": "23",
+      "icon": "fab fa-critical-role"
     },
     {
-      "title": "On hold",
-      "value": 64,
+      "title": "processing",
+      "value": "37",
       "icon": "fa-solid fa-pause-circle"
     }
   ],
+  
   "additionalInfoCards": [
     {
       "title": "Total Travels",
